@@ -151,9 +151,9 @@ function Home() {
                   <span className="truncate font-display text-[11px] leading-none text-cream">{ev.name.toUpperCase()}</span>
                   <span className="font-display text-[10px] leading-none text-cream/60">{now ? clock(ev.endsIn) : ""}</span>
                 </div>
-                <div className="relative h-4 overflow-hidden rounded-full border-2 border-ink bg-ink/70">
-                  <div className="h-full rounded-full bg-gradient-to-r from-berry to-sun transition-[width] duration-500" style={{ width: `${Math.max(4, (evTok / evNeed(evTier)) * 100)}%` }} />
-                  <span className="absolute inset-0 grid place-items-center font-display text-[10px] leading-none text-cream text-outline">{evTok}/{evNeed(evTier)}</span>
+                <div className="bar mt-0.5">
+                  <div className="bar-fill" style={{ width: `${Math.max(4, (evTok / evNeed(evTier)) * 100)}%`, background: "linear-gradient(90deg, var(--berry), var(--sun))" }} />
+                  <span className="bar-label">{evTok}/{evNeed(evTier)}</span>
                 </div>
               </div>
               <span className="relative shrink-0">
@@ -192,10 +192,9 @@ function Home() {
                 {s.premium ? <Crown className="h-3 w-3 text-ink" strokeWidth={3} /> : <Ticket className="h-3 w-3 text-cream" strokeWidth={3} />}
                 <span className={`font-display text-[10px] leading-none tracking-wider ${s.premium ? "text-ink" : "text-cream"}`}>{s.premium ? "PREMIUM" : "FREE"}</span>
               </span>
-              <div className="relative h-4 flex-1 overflow-hidden rounded-full border-2 border-ink bg-ink/70">
-                <div className="h-full rounded-full bg-gradient-to-r from-lime to-sky transition-[width] duration-500" style={{ width: `${Math.max(4, Math.min(100, (s.passXp / passNeed(s.passLevel)) * 100))}%` }} />
-                <div className="absolute inset-x-1 top-0.5 h-1 rounded-full bg-cream/30" />
-                <span className="absolute inset-0 grid place-items-center font-display text-[10px] leading-none text-cream text-outline">{fmt(s.passXp)}/{fmt(passNeed(s.passLevel))}</span>
+              <div className="bar relative flex-1">
+                <div className="bar-fill" style={{ width: `${Math.max(4, Math.min(100, (s.passXp / passNeed(s.passLevel)) * 100))}%`, background: "linear-gradient(90deg, var(--lime), var(--sky))" }} />
+                <span className="bar-label">{fmt(s.passXp)}/{fmt(passNeed(s.passLevel))}</span>
               </div>
               <span className={`relative z-10 -ml-2 grid h-8 w-8 rotate-45 place-items-center rounded-[9px] border-2 border-ink bg-gradient-to-br from-sun to-sun-dark ${levelUp ? "ring-4 ring-sun/50" : ""} shadow-[0_2px_0_var(--ink),inset_0_2px_0_oklch(1_0_0/.5)]`}>
                 <span className="-rotate-45 font-display text-sm leading-none text-cream text-outline">{s.passLevel}</span>
