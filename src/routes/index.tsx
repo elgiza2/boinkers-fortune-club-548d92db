@@ -118,7 +118,7 @@ function Home() {
     <Screen bare scroll={false} center={spinBtn}>
       <div className="flex h-full flex-col items-center justify-center px-3 pb-14 pt-2">
         <div className={`w-full max-w-[360px] ${shake ? "animate-shake" : ""}`}>
-          <div className="rounded-[32px] border border-cream/20 bg-cream/10 p-3 shadow-[0_20px_50px_-12px_oklch(0_0_0/.6),inset_0_1px_0_oklch(1_0_0/.25)] backdrop-blur-2xl">
+          <div className="slot-card rounded-[32px] border border-cream/20 bg-cream/10 p-3 shadow-[0_20px_50px_-12px_oklch(0_0_0/.6),inset_0_1px_0_oklch(1_0_0/.25)] backdrop-blur-2xl">
             {/* status / winner */}
             <div className="flex h-14 items-center gap-3 overflow-hidden rounded-[20px] bg-ink/40 px-3">
               {win ? (
