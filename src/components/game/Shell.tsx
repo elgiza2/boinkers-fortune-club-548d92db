@@ -58,9 +58,9 @@ function SettingsSheet({ open, onClose }: { open: boolean; onClose: () => void }
     finally { setConnecting(false); }
   }
   return (
-    <div className={`fixed inset-0 z-50 grid place-items-end bg-ink/70 backdrop-blur-sm transition-opacity ${open ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={onClose} aria-hidden={!open}>
+    <div className={`fixed inset-0 z-50 grid place-items-end bg-ink/80 backdrop-blur-md transition-opacity ${open ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={onClose} aria-hidden={!open}>
       <div
-        className={`glass-card relative w-full max-w-md rounded-t-[28px] border-white/15 bg-night/85 p-5 pb-8 transition-transform duration-300 ${open ? "translate-y-0" : "translate-y-full"}`}
+        className={`glass-card relative w-full max-w-md rounded-t-[28px] border-white/15 bg-night/95 p-5 pb-8 backdrop-blur-2xl transition-transform duration-300 ${open ? "translate-y-0" : "translate-y-full"}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mx-auto mb-4 h-1.5 w-10 rounded-full bg-white/25" />
