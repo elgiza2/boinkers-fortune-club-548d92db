@@ -183,6 +183,7 @@ body { font-family: var(--font-sans); }
 .group[data-status="active"] .nav-icon { background: oklch(1 0 0 / .12); }
 .group[data-status="active"] .nav-icon-img { animation: nav-pop .55s cubic-bezier(.34,1.56,.64,1) both; filter: none; }
 .group:active .nav-icon-img { transform: scale(.88); }
+.sheet-card { background: oklch(0.235 0.05 264 / 0.97); }
 @media (max-height: 660px) {
   .slot-reel { height: 124px; }
   .slot-sym-main { height: 52px; width: 52px; }
