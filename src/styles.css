@@ -264,7 +264,7 @@ body { font-family: var(--font-sans); }
 .fortune-back { position: absolute; top: 14px; left: 12px; z-index: 4; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 999px; background: var(--merge-glass); color: var(--cream); border: 1px solid var(--merge-line); backdrop-filter: blur(20px); }
 .fortune-title { flex-shrink: 0; font-family: var(--font-display); font-size: 26px; line-height: 1.2; color: var(--cream); -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill; text-shadow: 0 2px 0 color-mix(in oklch, var(--ink) 82%, transparent); text-align: center; margin-top: 26px; }
 .fortune-stage { width: min(100%, 410px, calc((100dvh - 265px) / 1.13)); aspect-ratio: 1 / 1.13; position: relative; flex-shrink: 0; margin-top: 17px; }
-.fortune-wheel { width: 100%; aspect-ratio: 1; position: relative; }
+.fortune-wheel { width: 100%; aspect-ratio: 1; position: relative; container-type: inline-size; }
 .fortune-rim { position: absolute; inset: 0; border-radius: 50%; background: var(--wheel-rim-gradient); border: 2px solid var(--ink); box-shadow: var(--wheel-shadow); }
 .fortune-disc { position: absolute; inset: 6.5%; border: 2px solid var(--wheel-blue-light); border-radius: 50%; background: var(--wheel-disc-gradient); transition: transform 4s cubic-bezier(.17,.67,.2,1); overflow: hidden; }
 .fortune-pointer { position: absolute; width: 52px; height: 52px; top: -25px; left: 50%; transform: translateX(-50%); z-index: 3; fill: var(--sun); color: var(--ink); filter: drop-shadow(0 3px 0 var(--sun-dark)); }
@@ -272,10 +272,10 @@ body { font-family: var(--font-sans); }
 .fortune-bulb i { display: block; width: 10px; height: 10px; margin: auto; border-radius: 50%; background: var(--wheel-glow); box-shadow: 0 0 7px var(--wheel-glow); }
 .fortune-bulb-pink i { background: var(--wheel-pink); box-shadow: 0 0 7px var(--wheel-pink); }
 .fortune-prize { position: absolute; top: 0; left: 50%; width: 16%; height: 50%; transform-origin: center bottom; }
-.fortune-prize-content { display: flex; flex-direction: column; align-items: center; padding-top: 15%; gap: 7px; }
-.fortune-prize img { width: 44px; max-width: 90%; height: 53px; object-fit: contain; filter: drop-shadow(0 2px 0 var(--ink)); }
-.fortune-ticket-prize { width: 38px; height: 53px; color: var(--ink); fill: var(--sun); stroke-width: 2px; }
-.fortune-prize span { font-family: var(--font-display); font-size: 17px; line-height: 1; color: var(--sky); -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill; text-shadow: 0 2px 0 var(--ink); }
+.fortune-prize-content { display: flex; flex-direction: column; align-items: center; padding-top: 2.4cqw; gap: 1.6cqw; }
+.fortune-prize img { width: 10.8cqw; max-width: 92%; height: 13cqw; object-fit: contain; filter: drop-shadow(0 2px 0 var(--ink)); }
+.fortune-ticket-prize { width: 9.4cqw; height: 13cqw; color: var(--ink); fill: var(--sun); stroke-width: 2px; }
+.fortune-prize span { font-family: var(--font-display); font-size: 4.4cqw; line-height: 1; color: var(--sky); -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill; text-shadow: 0 2px 0 var(--ink); white-space: nowrap; }
 .fortune-hub { position: absolute; inset: 38%; display: grid; place-items: center; }
 .fortune-hub img { width: 115%; height: 115%; max-width: none; object-fit: contain; filter: drop-shadow(0 2px 0 var(--ink)); }
 .fortune-stand { position: absolute; width: 36%; height: 24%; bottom: 0; left: 32%; background: var(--wheel-rim-gradient); border: 2px solid var(--ink); clip-path: polygon(20% 0,80% 0,100% 100%,0 100%); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5px; }
@@ -289,7 +289,7 @@ body { font-family: var(--font-sans); }
 .fortune-tickets svg { color: var(--sun); }
 .fortune-result { position: absolute; bottom: calc(100% + 5px); font-family: var(--font-display); color: var(--sun); font-size: 18px; }
 @media (max-height: 700px) { .fortune-title { font-size: 24px; } }
-@media (max-height: 590px) { .fortune-page { gap: 8px; padding-bottom: 12px; } .fortune-prize img,.fortune-ticket-prize { width: 32px; height: 37px; } .fortune-prize span { font-size: 15px; } }
+@media (max-height: 590px) { .fortune-page { gap: 8px; padding-bottom: 12px; } }
 
 .nft-page { padding: 20px 14px 80px; }
 .nft-heading { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; margin-bottom: 18px; }
@@ -340,4 +340,3 @@ body { font-family: var(--font-sans); }
 /* Readability over the bright cloud/moon artwork */
 .nft-page { padding: 20px 14px 130px; }
 .nft-wallet { background: oklch(0.23 0.045 264 / 0.72); border: 1px solid var(--merge-line); color: var(--cream); font-size: 12px; border-radius: 999px; backdrop-filter: blur(20px); }
-@media (max-height: 620px) { .fortune-prize img,.fortune-ticket-prize { width: 30px; height: 35px; } .fortune-prize span { font-size: 13px; } }
