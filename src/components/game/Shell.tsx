@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Volume2, VolumeX, X } from "lucide-react";
 import hero from "@/assets/hero-character.png";
@@ -54,29 +54,31 @@ function NavItem({ icon, label, to, divider }: { icon: string; label: string; to
   );
 }
 
-/** Bottom bar: big diamond SPIN rises out of the middle, spins meter sits under it inside the bar. */
+/** Bottom bar: big diamond SPIN rises out of the middle on the slot page; a compact chip elsewhere. */
 export function BottomNav({ center }: { center?: ReactNode }) {
   const { s } = useGame();
+  const pathname = useRouterState({ select: (st) => st.location.pathname });
+  const compact = !center && pathname !== "/";
   const pct = Math.min(100, (s.spins / MAX_SPINS) * 100);
   return (
     <nav className="relative z-30 pb-[env(safe-area-inset-bottom)]">
-      <div className="relative grid h-[78px] grid-cols-[1fr_1fr_1.9fr_1fr_1fr] border-t border-white/10 bg-ink/45 backdrop-blur-2xl">
+      <div className={`relative grid grid-cols-[1fr_1fr_1.9fr_1fr_1fr] border-t border-white/10 bg-ink/45 backdrop-blur-2xl ${compact ? "h-[66px]" : "h-[78px]"}`}>
         <NavItem icon={ART.rocket} label="UPGRADE" to="/upgrade" />
         <NavItem icon={ART.bag} label="EARN" to="/earn" />
         <div className="relative">
-          <div className="absolute left-1/2 top-[-58px] h-[112px] w-[112px] -translate-x-1/2">
+          <div className={`absolute left-1/2 -translate-x-1/2 ${compact ? "top-[-26px] h-[80px] w-[80px]" : "top-[-58px] h-[112px] w-[112px]"}`}>
             {center ?? (
               <Link to="/" className="chunk-btn h-full w-full rounded-[2rem] bg-gradient-to-b from-sun to-sun-dark">
-                <span className="font-display text-2xl leading-none">SPIN</span>
+                <span className={`font-display leading-none ${compact ? "text-xl" : "text-2xl"}`}>SPIN</span>
               </Link>
             )}
           </div>
-          <div className="absolute inset-x-2 bottom-2.5 flex h-[22px] items-center rounded-full border border-white/15 bg-ink/60 pl-4 pr-2 backdrop-blur-md">
-            <img src={ART.bolt} alt="" className="absolute left-1 h-6 w-6 object-contain" />
-            <div className="h-3.5 flex-1 overflow-hidden rounded-full bg-ink/70">
+          <div className={`absolute inset-x-2 flex items-center rounded-full border border-white/15 bg-ink/60 pl-4 pr-2 backdrop-blur-md ${compact ? "bottom-2 h-[20px]" : "bottom-2.5 h-[22px]"}`}>
+            <img src={ART.bolt} alt="" className={`absolute left-1 object-contain ${compact ? "h-5 w-5" : "h-6 w-6"}`} />
+            <div className={`flex-1 overflow-hidden rounded-full bg-ink/70 ${compact ? "h-3" : "h-3.5"}`}>
               <div className="h-full rounded-full bg-gradient-to-r from-sky to-grape transition-[width] duration-300" style={{ width: `${pct}%` }} />
             </div>
-            <span className="absolute inset-0 grid place-items-center pl-3 font-display text-[12px] leading-none text-cream">{s.spins}/{MAX_SPINS}</span>
+            <span className={`absolute inset-0 grid place-items-center font-display leading-none text-cream ${compact ? "pl-2.5 text-[11px]" : "pl-3 text-[12px]"}`}>{s.spins}/{MAX_SPINS}</span>
           </div>
         </div>
         <NavItem icon={nftIcon} label="NFT" to="/nft" />
