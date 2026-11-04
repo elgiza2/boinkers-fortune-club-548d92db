@@ -58,7 +58,9 @@ function Tasks() {
         const label = t.r.spins ? `+${t.r.spins} SPINS` : t.r.coins ? `+${fmt(t.r.coins)} COINS` : `+${t.r.tickets} TICKET`;
         return (
           <div key={t.id} className="glass-card flex items-center gap-3 p-2.5">
-            <img src={t.icon} alt="" className="h-9 w-9 object-contain" />
+            {t.id === "yt"
+              ? <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/10 text-lg">▶️</span>
+              : <img src={t.icon} alt="" className="h-9 w-9 object-contain" />}
             <div className="flex-1"><div className="font-semibold leading-tight">{t.title}</div><div className="font-display text-sm text-sun">{label}</div></div>
             <button disabled={done} onClick={() => {
               if (!go) { window.open(t.url, "_blank"); setOpened((o) => [...o, t.id]); }
