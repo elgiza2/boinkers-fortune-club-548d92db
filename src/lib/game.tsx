@@ -245,8 +245,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     });
   }, []);
   const toggleSound = useCallback(() => setS((p) => ({ ...p, sound: !p.sound })), []);
+  const setLang = useCallback((lang: "en" | "ar") => setS((p) => ({ ...p, lang })), []);
 
-  return <GameCtx.Provider value={{ s, ready, pendingSolo, nextSpinIn, grant, spend, claimSolo, upgrade, completeTask, claimMilestone, toggleSound, gainPass, gainEvent, buyMerge, moveMerge }}>{children}</GameCtx.Provider>;
+  return <GameCtx.Provider value={{ s, ready, pendingSolo, nextSpinIn, grant, spend, claimSolo, upgrade, completeTask, claimMilestone, toggleSound, setLang, gainPass, gainEvent, buyMerge, moveMerge }}>{children}</GameCtx.Provider>;
 }
 
 export function useGame() {
