@@ -165,16 +165,16 @@ function Home() {
             {/* reels */}
             <div className="mt-3 grid grid-cols-3 gap-2">
               {reels.map((sym, i) => (
-                <div key={i} className="relative h-44 overflow-hidden rounded-[22px] bg-cream shadow-[inset_0_14px_14px_-10px_oklch(0_0_0/.3),inset_0_-14px_14px_-10px_oklch(0_0_0/.3)]">
+                <div key={i} className="slot-reel relative overflow-hidden rounded-[22px] bg-cream shadow-[inset_0_14px_14px_-10px_oklch(0_0_0/.3),inset_0_-14px_14px_-10px_oklch(0_0_0/.3)]">
                   {spinning[i] ? (
                     <div className="animate-reel flex flex-col items-center blur-[1px]">
-                      {[...SYMBOLS, ...SYMBOLS, ...SYMBOLS].map((x, k) => <SymImg key={k} sym={x} className="my-1 h-12 w-12" />)}
+                      {[...SYMBOLS, ...SYMBOLS, ...SYMBOLS].map((x, k) => <SymImg key={k} sym={x} className="slot-sym-spin" />)}
                     </div>
                   ) : (
                     <div key={sym + i + s.spins} className="animate-thud flex h-full flex-col items-center justify-between">
-                      <SymImg sym={at(sym, 1)} className="-mt-7 h-14 w-14 opacity-40" />
-                      <SymImg sym={sym} className="h-[70px] w-[70px] drop-shadow-[0_6px_8px_oklch(0_0_0/.25)]" />
-                      <SymImg sym={at(sym, 2)} className="-mb-7 h-14 w-14 opacity-40" />
+                      <SymImg sym={at(sym, 1)} className="slot-sym-peek opacity-40" />
+                      <SymImg sym={sym} className="slot-sym-main drop-shadow-[0_6px_8px_oklch(0_0_0/.25)]" />
+                      <SymImg sym={at(sym, 2)} className="slot-sym-peek slot-sym-peek-b opacity-40" />
                     </div>
                   )}
                 </div>
