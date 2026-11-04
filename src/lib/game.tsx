@@ -22,6 +22,7 @@ export interface GameState {
   tasksDone: string[];
   claimedMilestones: number[];
   sound: boolean;
+  lang: "en" | "ar";
   passXp: number;
   passLevel: number;
   premium: boolean;
@@ -37,7 +38,7 @@ const initial = (): GameState => ({
   coins: 5000, solo: 0, spins: MAX_SPINS, tickets: 1, tokens: 0, level: 1,
   parts: { head: 0, body: 0, gear: 0 },
   lastSpinRegen: Date.now(), lastSoloClaim: Date.now(),
-  tasksDone: [], claimedMilestones: [], sound: true,
+  tasksDone: [], claimedMilestones: [], sound: true, lang: "en",
   passXp: 0, passLevel: 1, premium: false,
   eventId: -1, evTokens: 0, evTier: 0,
   mergeBoard: starterBoard(), mergeBest: 1, soloBank: 0,
@@ -132,6 +133,7 @@ interface Ctx {
   completeTask: (id: string, r: Reward) => void;
   claimMilestone: (i: number) => void;
   toggleSound: () => void;
+  setLang: (lang: "en" | "ar") => void;
   gainPass: (spinsUsed: number) => number;
   gainEvent: (tokens: number) => number;
   buyMerge: () => void;
@@ -243,8 +245,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     });
   }, []);
   const toggleSound = useCallback(() => setS((p) => ({ ...p, sound: !p.sound })), []);
+  const setLang = useCallback((lang: "en" | "ar") => setS((p) => ({ ...p, lang })), []);
 
-  return <GameCtx.Provider value={{ s, ready, pendingSolo, nextSpinIn, grant, spend, claimSolo, upgrade, completeTask, claimMilestone, toggleSound, gainPass, gainEvent, buyMerge, moveMerge }}>{children}</GameCtx.Provider>;
+  return <GameCtx.Provider value={{ s, ready, pendingSolo, nextSpinIn, grant, spend, claimSolo, upgrade, completeTask, claimMilestone, toggleSound, setLang, gainPass, gainEvent, buyMerge, moveMerge }}>{children}</GameCtx.Provider>;
 }
 
 export function useGame() {
