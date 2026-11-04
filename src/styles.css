@@ -170,6 +170,20 @@ body { font-family: var(--font-sans); }
 .seg > .seg-active { color: var(--ink); background: linear-gradient(180deg, var(--sun), var(--sun-dark)); box-shadow: 0 2px 6px -2px oklch(0 0 0 / 0.5); }
 .bar { position: relative; height: 16px; overflow: hidden; border-radius: 999px; background: var(--merge-slot); border: 1px solid var(--merge-line); }
 .bar-fill { height: 100%; border-radius: 999px; transition: width .5s; background: linear-gradient(90deg, var(--sky), var(--grape)); }
+
+.slot-reel { height: 176px; }
+.slot-sym-main { height: 70px; width: 70px; }
+.slot-sym-peek { height: 56px; width: 56px; margin-top: -28px; }
+.slot-sym-peek-b { margin-top: 0; margin-bottom: -28px; }
+.slot-sym-spin { height: 48px; width: 48px; margin: 4px 0; }
+@media (max-height: 660px) {
+  .slot-reel { height: 124px; }
+  .slot-sym-main { height: 52px; width: 52px; }
+  .slot-sym-peek { height: 40px; width: 40px; margin-top: -20px; }
+  .slot-sym-peek-b { margin-top: 0; margin-bottom: -20px; }
+  .slot-sym-spin { height: 34px; width: 34px; margin: 3px 0; }
+  .slot-card { padding: 10px; }
+}
 .bar > .bar-label { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: 10px; line-height: 1; color: var(--cream); }
 
 @keyframes reel-blur { from { transform: translateY(0) } to { transform: translateY(-50%) } }
@@ -318,7 +332,7 @@ body { font-family: var(--font-sans); }
 .nft-detail > img { width: 100%; height: 260px; object-fit: contain; }
 .nft-detail-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--sun); }
 .nft-wallet { background: var(--merge-glass); border: 1px solid var(--merge-line); color: var(--cream); font-size: 12px; border-radius: 999px; backdrop-filter: blur(20px); }
-.nft-intro { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 12px; padding: 4px 0 16px; }
+.nft-intro { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 12px; padding: 2px 0 10px; }
 .nft-intro > svg { color: var(--sky); margin-top: 2px; }
 .nft-intro h2 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
 .nft-intro p { color: var(--merge-dim); font-size: 13px; line-height: 1.6; }
