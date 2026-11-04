@@ -170,7 +170,7 @@ body { font-family: var(--font-sans); }
 .seg > .seg-active { color: var(--ink); background: linear-gradient(180deg, var(--sun), var(--sun-dark)); box-shadow: 0 2px 6px -2px oklch(0 0 0 / 0.5); }
 .bar { position: relative; height: 16px; overflow: hidden; border-radius: 999px; background: var(--merge-slot); border: 1px solid var(--merge-line); }
 .bar-fill { height: 100%; border-radius: 999px; transition: width .5s; background: linear-gradient(90deg, var(--sky), var(--grape)); }
-.bar > .bar-label { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: 10px; line-height: none; color: var(--cream); }
+.bar > .bar-label { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: 10px; line-height: 1; color: var(--cream); }
 
 @keyframes reel-blur { from { transform: translateY(0) } to { transform: translateY(-50%) } }
 @keyframes thud { 0% { transform: translateY(-14px) } 60% { transform: translateY(5px) } 100% { transform: translateY(0) } }
