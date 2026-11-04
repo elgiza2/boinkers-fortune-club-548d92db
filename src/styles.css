@@ -137,12 +137,12 @@ body { font-family: var(--font-sans); }
 
 /* ---- Shared Apple-clean primitives (unified across every page) ---- */
 .glass-card {
-  background: var(--merge-glass);
+  background: oklch(0.23 0.045 264 / 0.66);
   border: 1px solid var(--merge-line);
   border-radius: calc(var(--radius) + 4px);
   backdrop-filter: blur(24px) saturate(1.4);
   -webkit-backdrop-filter: blur(24px) saturate(1.4);
-  box-shadow: 0 12px 32px -16px oklch(0 0 0 / 0.5), inset 0 1px 0 oklch(1 0 0 / 18%);
+  box-shadow: 0 12px 32px -16px oklch(0 0 0 / 0.55), inset 0 1px 0 oklch(1 0 0 / 18%);
 }
 .pill-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
@@ -196,11 +196,11 @@ body { font-family: var(--font-sans); }
   }
 }
 
-.merge-page { height: 100%; max-width: 384px; margin: auto; display: flex; flex-direction: column; gap: 14px; padding: 20px 18px 76px; color: var(--cream); }
+.merge-page { height: 100%; max-width: 384px; margin: auto; display: flex; flex-direction: column; gap: 14px; padding: 20px 18px 100px; color: var(--cream); }
 .merge-heading { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 12px; flex-shrink: 0; }
 .merge-heading h1 { font-family: var(--font-display); font-size: 24px; line-height: 1.2; }
 .merge-title { min-width: 0; }
-.merge-book { color: var(--cream); background: var(--merge-glass); border: 1px solid var(--merge-line); border-radius: 14px; backdrop-filter: blur(20px); }
+.merge-book { color: var(--sun); background: oklch(0.23 0.045 264 / 0.55); border: 1px solid var(--merge-line); border-radius: 14px; backdrop-filter: blur(20px); }
 .merge-production { display: flex; align-items: center; gap: 5px; margin-top: 4px; font-size: 12px; color: var(--merge-dim); }
 .merge-production svg { color: var(--sky); }
 .merge-production strong { color: var(--sun); font-size: 16px; }
@@ -222,7 +222,7 @@ body { font-family: var(--font-sans); }
 .merge-next:hover { background: var(--merge-glass); }
 .merge-preview { position: relative; width: 34px; height: 34px; padding: 2px; flex-shrink: 0; }
 .merge-preview > svg { position: absolute; bottom: 2px; right: 2px; color: var(--sun); }
-.merge-silhouette { filter: brightness(0) invert(1) opacity(.3); animation: none !important; }
+.merge-silhouette { filter: brightness(0) invert(1) opacity(.5); animation: none !important; }
 .merge-next > div:nth-child(2) { text-align: left; min-width: 0; }
 .merge-next > div > span { display: block; font-size: 8px; color: var(--merge-dim); }
 .merge-next strong { font-size: 13px; }
@@ -234,6 +234,7 @@ body { font-family: var(--font-sans); }
 .merge-claim { background: var(--merge-glass); color: var(--cream); backdrop-filter: blur(20px); }
 .merge-claim svg { color: var(--sky); }
 .merge-claim:hover { background: var(--merge-glass); filter: brightness(1.2); }
+.merge-actions button:disabled { filter: grayscale(.35) brightness(.9); }
 .merge-actions strong { display: block; font-size: 13px; }
 .merge-actions span { display: flex; align-items: center; justify-content: center; gap: 3px; font-size: 10px; }
 .merge-actions img { object-fit: contain; }
@@ -323,15 +324,20 @@ body { font-family: var(--font-sans); }
 .nft-intro p { color: var(--merge-dim); font-size: 13px; line-height: 1.6; }
 .nft-intro span { display: block; margin-top: 9px; color: var(--sun); font-size: 11px; }
 .nft-sale-list { display: flex; flex-direction: column; gap: 20px; }
-.nft-sale { border: 1px solid var(--merge-line); border-radius: 16px; overflow: hidden; background: var(--merge-glass); }
+.nft-sale { border: 1px solid var(--merge-line); border-radius: 16px; overflow: hidden; background: oklch(0.24 0.05 264 / 0.88); }
 .nft-sale-art { position: relative; height: 230px; padding: 18px; background: color-mix(in oklch, var(--sky) 12%, transparent); }
 .nft-fantasy .nft-sale-art { background: color-mix(in oklch, var(--berry) 12%, transparent); }
 .nft-legends .nft-sale-art { background: color-mix(in oklch, var(--lime) 12%, transparent); }
 .nft-sale-art img { width: 100%; height: 100%; object-fit: contain; }
 .nft-sale-art > span { position: absolute; left: 14px; top: 12px; font-size: 11px; color: var(--merge-dim); }
-.nft-sale-info { padding: 16px; }
+.nft-sale-info { padding: 16px; background: oklch(0.24 0.05 264 / 0.88); }
 .nft-sale-family { color: var(--sky); font-size: 10px; }
 .nft-sale-info h2 { font-family: var(--font-display); font-size: 24px; margin-top: 4px; }
 .nft-sale-info p { font-size: 13px; line-height: 1.6; color: var(--merge-dim); margin: 8px 0 16px; }
 .nft-buy { width: 100%; background: linear-gradient(180deg, var(--sun), var(--sun-dark)); color: var(--cream); justify-content: space-between; height: 44px; border-radius: 999px; -webkit-text-stroke: .5px var(--ink); paint-order: stroke fill; }
 .nft-buy:hover { background: linear-gradient(180deg, var(--sun), var(--sun-dark)); filter: brightness(1.06); }
+
+/* Readability over the bright cloud/moon artwork */
+.nft-page { padding: 20px 14px 130px; }
+.nft-wallet { background: oklch(0.23 0.045 264 / 0.72); border: 1px solid var(--merge-line); color: var(--cream); font-size: 12px; border-radius: 999px; backdrop-filter: blur(20px); }
+@media (max-height: 620px) { .fortune-prize img,.fortune-ticket-prize { width: 30px; height: 35px; } .fortune-prize span { font-size: 13px; } }
