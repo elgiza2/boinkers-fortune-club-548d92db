@@ -1,23 +1,3 @@
 # Roadmap
-- [x] Replace NFT favorites gallery with clean artwork, explanation, names and TON buy buttons
-- [ ] Enable real NFT purchase — waiting for deployed sale contract/listings and actual TON prices
-- [x] Standalone wheel without bottom navigation and reference-sized wheel with its own spin button
-- [x] Complete NFT gallery with more than 50 distinct mascot artworks, filtering and details
-- [x] Enlarge wheel and cropped prize artwork, separate amounts and remove duplicated spin control
-- [x] Increase wheel prizes and refine reference proportions, segments, mascot and stand
-- [x] Remove upgrade title and restyle WHEEL from reference without side extras or bottom event row
-- [x] Simplify Merge Island and replace creatures with the user's golden mascot with natural faces
-- [x] Restyle Merge Island to match slot identity: night sky, glass board, larger characters, matching controls and collection
-- [x] Defer database use: remove account sync and keep Merge Island on existing local game state
-- [x] Merge Island: clean board, coin purchases, matching-character drag merge, evolving families, SOLO production, tests
-- [x] Home: side icons/events removed, no page scroll
-- [x] Spins count under SPIN; SPIN + x1 bet like reference
-- [x] Bottom nav (UPGRADE, EARN, SPIN, STICKERS, WHEEL) + wheel page
-- [x] Smaller header
-- [x] No emojis
-- [ ] Fire Pass page (FREE progress bar) — later
-- [x] Slot machine exterior: clean iOS style (glass, soft radius)
-- [x] Pass bar: smaller, custom FREE tag + level badge
-- [x] Top box: welcome user; show win cleanly after spin
-- [x] Pass bar tappable -> /pass gifts page (placeholder); level-up claim indicator
-- [x] 48h rotating event: event token symbol on reels, any hit gives coins + progress, escalating endless gifts, new event/token every 48h
+- [x] Import boinkers-fortune-club from GitHub (code, assets, migration applied, build + tests verified)
+- [ ] Full UI refresh: modern clean UI, unified design system across the whole site
