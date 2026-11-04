@@ -170,6 +170,20 @@ body { font-family: var(--font-sans); }
 .seg > .seg-active { color: var(--ink); background: linear-gradient(180deg, var(--sun), var(--sun-dark)); box-shadow: 0 2px 6px -2px oklch(0 0 0 / 0.5); }
 .bar { position: relative; height: 16px; overflow: hidden; border-radius: 999px; background: var(--merge-slot); border: 1px solid var(--merge-line); }
 .bar-fill { height: 100%; border-radius: 999px; transition: width .5s; background: linear-gradient(90deg, var(--sky), var(--grape)); }
+
+.slot-reel { height: 176px; }
+.slot-sym-main { height: 70px; width: 70px; }
+.slot-sym-peek { height: 56px; width: 56px; margin-top: -28px; }
+.slot-sym-peek-b { margin-top: 0; margin-bottom: -28px; }
+.slot-sym-spin { height: 48px; width: 48px; margin: 4px 0; }
+@media (max-height: 660px) {
+  .slot-reel { height: 124px; }
+  .slot-sym-main { height: 52px; width: 52px; }
+  .slot-sym-peek { height: 40px; width: 40px; margin-top: -20px; }
+  .slot-sym-peek-b { margin-top: 0; margin-bottom: -20px; }
+  .slot-sym-spin { height: 34px; width: 34px; margin: 3px 0; }
+  .slot-card { padding: 10px; }
+}
 .bar > .bar-label { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: 10px; line-height: 1; color: var(--cream); }
 
 @keyframes reel-blur { from { transform: translateY(0) } to { transform: translateY(-50%) } }
@@ -264,7 +278,7 @@ body { font-family: var(--font-sans); }
 .fortune-back { position: absolute; top: 14px; left: 12px; z-index: 4; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 999px; background: var(--merge-glass); color: var(--cream); border: 1px solid var(--merge-line); backdrop-filter: blur(20px); }
 .fortune-title { flex-shrink: 0; font-family: var(--font-display); font-size: 26px; line-height: 1.2; color: var(--cream); -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill; text-shadow: 0 2px 0 color-mix(in oklch, var(--ink) 82%, transparent); text-align: center; margin-top: 26px; }
 .fortune-stage { width: min(100%, 410px, calc((100dvh - 265px) / 1.13)); aspect-ratio: 1 / 1.13; position: relative; flex-shrink: 0; margin-top: 17px; }
-.fortune-wheel { width: 100%; aspect-ratio: 1; position: relative; }
+.fortune-wheel { width: 100%; aspect-ratio: 1; position: relative; container-type: inline-size; }
 .fortune-rim { position: absolute; inset: 0; border-radius: 50%; background: var(--wheel-rim-gradient); border: 2px solid var(--ink); box-shadow: var(--wheel-shadow); }
 .fortune-disc { position: absolute; inset: 6.5%; border: 2px solid var(--wheel-blue-light); border-radius: 50%; background: var(--wheel-disc-gradient); transition: transform 4s cubic-bezier(.17,.67,.2,1); overflow: hidden; }
 .fortune-pointer { position: absolute; width: 52px; height: 52px; top: -25px; left: 50%; transform: translateX(-50%); z-index: 3; fill: var(--sun); color: var(--ink); filter: drop-shadow(0 3px 0 var(--sun-dark)); }
@@ -272,12 +286,12 @@ body { font-family: var(--font-sans); }
 .fortune-bulb i { display: block; width: 10px; height: 10px; margin: auto; border-radius: 50%; background: var(--wheel-glow); box-shadow: 0 0 7px var(--wheel-glow); }
 .fortune-bulb-pink i { background: var(--wheel-pink); box-shadow: 0 0 7px var(--wheel-pink); }
 .fortune-prize { position: absolute; top: 0; left: 50%; width: 16%; height: 50%; transform-origin: center bottom; }
-.fortune-prize-content { display: flex; flex-direction: column; align-items: center; padding-top: 15%; gap: 7px; }
-.fortune-prize img { width: 44px; max-width: 90%; height: 53px; object-fit: contain; filter: drop-shadow(0 2px 0 var(--ink)); }
-.fortune-ticket-prize { width: 38px; height: 53px; color: var(--ink); fill: var(--sun); stroke-width: 2px; }
-.fortune-prize span { font-family: var(--font-display); font-size: 17px; line-height: 1; color: var(--sky); -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill; text-shadow: 0 2px 0 var(--ink); }
-.fortune-hub { position: absolute; inset: 38%; display: grid; place-items: center; }
-.fortune-hub img { width: 115%; height: 115%; max-width: none; object-fit: contain; filter: drop-shadow(0 2px 0 var(--ink)); }
+.fortune-prize-content { display: flex; flex-direction: column; align-items: center; padding-top: 2.4cqw; gap: 1.6cqw; }
+.fortune-prize img { width: 10.8cqw; max-width: 92%; height: 13cqw; object-fit: contain; filter: drop-shadow(0 2px 0 var(--ink)); }
+.fortune-ticket-prize { width: 9.4cqw; height: 13cqw; color: var(--ink); fill: var(--sun); stroke-width: 2px; }
+.fortune-prize span { font-family: var(--font-display); font-size: 4.4cqw; line-height: 1; color: var(--sky); -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill; text-shadow: 0 2px 0 var(--ink); white-space: nowrap; }
+.fortune-hub { position: absolute; inset: 39.5%; display: grid; place-items: center; }
+.fortune-hub img { width: 108%; height: 108%; max-width: none; object-fit: contain; filter: drop-shadow(0 2px 0 var(--ink)); }
 .fortune-stand { position: absolute; width: 36%; height: 24%; bottom: 0; left: 32%; background: var(--wheel-rim-gradient); border: 2px solid var(--ink); clip-path: polygon(20% 0,80% 0,100% 100%,0 100%); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5px; }
 .fortune-stand span { font-family: var(--font-display); color: var(--cream); font-size: 18px; -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill; }
 .fortune-controls { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; width: 100%; position: relative; }
@@ -289,7 +303,7 @@ body { font-family: var(--font-sans); }
 .fortune-tickets svg { color: var(--sun); }
 .fortune-result { position: absolute; bottom: calc(100% + 5px); font-family: var(--font-display); color: var(--sun); font-size: 18px; }
 @media (max-height: 700px) { .fortune-title { font-size: 24px; } }
-@media (max-height: 590px) { .fortune-page { gap: 8px; padding-bottom: 12px; } .fortune-prize img,.fortune-ticket-prize { width: 32px; height: 37px; } .fortune-prize span { font-size: 15px; } }
+@media (max-height: 590px) { .fortune-page { gap: 8px; padding-bottom: 12px; } }
 
 .nft-page { padding: 20px 14px 80px; }
 .nft-heading { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; margin-bottom: 18px; }
@@ -298,7 +312,7 @@ body { font-family: var(--font-sans); }
 .nft-count { display: flex; align-items: center; gap: 7px; color: var(--sun); font-family: var(--font-display); font-size: 20px; }
 .nft-search { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 8px; background: var(--merge-glass); border: 1px solid var(--merge-line); border-radius: 999px; padding: 0 12px; color: var(--merge-dim); backdrop-filter: blur(20px); }
 .nft-search input { width: 100%; min-width: 0; height: 42px; outline: none; color: var(--cream); font-size: 13px; }
-.nft-tabs { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin: 12px 0 16px; gap: 2px; }
+.nft-tabs { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin: 8px 0 14px; gap: 2px; }
 .nft-tabs button { padding: 0 4px; font-size: 12px; color: var(--merge-dim); }
 .nft-tabs .nft-tab-active { color: var(--ink); background: linear-gradient(180deg, var(--sun), var(--sun-dark)); border-radius: 999px; }
 .nft-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
@@ -318,7 +332,7 @@ body { font-family: var(--font-sans); }
 .nft-detail > img { width: 100%; height: 260px; object-fit: contain; }
 .nft-detail-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--sun); }
 .nft-wallet { background: var(--merge-glass); border: 1px solid var(--merge-line); color: var(--cream); font-size: 12px; border-radius: 999px; backdrop-filter: blur(20px); }
-.nft-intro { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 12px; padding: 4px 0 16px; }
+.nft-intro { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 12px; padding: 2px 0 10px; }
 .nft-intro > svg { color: var(--sky); margin-top: 2px; }
 .nft-intro h2 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
 .nft-intro p { color: var(--merge-dim); font-size: 13px; line-height: 1.6; }
@@ -340,4 +354,3 @@ body { font-family: var(--font-sans); }
 /* Readability over the bright cloud/moon artwork */
 .nft-page { padding: 20px 14px 130px; }
 .nft-wallet { background: oklch(0.23 0.045 264 / 0.72); border: 1px solid var(--merge-line); color: var(--cream); font-size: 12px; border-radius: 999px; backdrop-filter: blur(20px); }
-@media (max-height: 620px) { .fortune-prize img,.fortune-ticket-prize { width: 30px; height: 35px; } .fortune-prize span { font-size: 13px; } }
